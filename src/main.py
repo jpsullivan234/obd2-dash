@@ -1,15 +1,16 @@
 from kivy.app import App
-from kivy.app import Builder
-from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
 from gui.screens.dashboard import DashboardScreen
+from gui.screens.sidebar import Sidebar
+from kivy.uix.screenmanager import ScreenManager, Screen
 
-class MainLayout(BoxLayout):
+class MainScreen(Screen):
 	pass
 
 class ObdDashboardApp(App):
 	def build(self):
-		Builder.load_file("src/gui/kv/main.kv")
-		return MainLayout()
+		Builder.load_file("gui/kv/main.kv")
+		return MainScreen()
 
-if __name__ == "__main__":
-	ObdDashboardApp.run()
+if __name__ == '__main__':
+	ObdDashboardApp().run()

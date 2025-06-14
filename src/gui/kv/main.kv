@@ -1,5 +1,42 @@
-<MainLayout>:
-	orientation: 'horizontal'
+<MainScreen>:
+	BoxLayout:
+		orientation: 'horizontal'
 
-	DashboardScreen:
-		id: dashboard
+		Sidebar:
+			id: sidebar
+
+		ScreenManager:
+			id: page_manager
+			DashboardScreen:
+				name: 'dashboard1'
+			DashboardScreen:
+				name: 'dashboard2'
+				
+<DashboardScreen>:
+	BoxLayout:
+		padding: 20
+		GridLayout:
+			id: metrics_grid
+			cols: 3
+			rows: 2
+			spacing: 20
+
+<Sidebar>:
+	orientation: 'vertical'
+	size_hint_x: 0.15
+	padding: 10
+	spacing: 10
+	canvas.before:
+		Color:
+			rgba: 0.15, 0.15, 0.15, 1
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [0, 10, 10, 0]
+
+	Button:
+		background_normal: 'gui/assets/icons/home-symbol.png'
+		on_press: app.root.ids.page_manager.current = 'dashboard1'
+	Button:
+		background_normal: 'gui/assets/icons/engine-symbol.png'
+		on_press: app.root.ids.page_manager.current = 'dashboard2'
