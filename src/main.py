@@ -4,6 +4,10 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivy.metrics import dp
 from kivy.properties import ObjectProperty
+from kivy.config import Config
+Config.set('graphics', 'resizable', True)
+Config.set('graphics', 'width', 800)
+Config.set('graphics', 'height', 480)
 
 # Import the Screen classes
 from gui.screens import HomeScreen
