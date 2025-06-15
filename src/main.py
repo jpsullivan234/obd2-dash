@@ -6,8 +6,8 @@ from kivy.metrics import dp
 from kivy.properties import ObjectProperty
 from kivy.config import Config
 Config.set('graphics', 'resizable', True)
-Config.set('graphics', 'width', 800)
-Config.set('graphics', 'height', 480)
+Config.set('graphics', 'width', 800)	# pi screen dimensions: 800x480
+Config.set('graphics', 'height', 440)
 
 # Import the Screen classes
 from gui.screens import HomeScreen
