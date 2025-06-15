@@ -9,7 +9,7 @@ Kivy==2.3.1
 Kivy-examples==2.3.1
 Kivy-Garden==0.1.5
 obd==0.7.3
-pillow==10.4.0
+pillow==11.2.1
 Pint==0.24.4
 platformdirs==4.3.8
 Pygments==2.19.1
