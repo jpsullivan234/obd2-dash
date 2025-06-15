@@ -17,11 +17,16 @@
     # Sidebar (left column)
     BoxLayout:
         orientation: 'vertical'
-        size_hint_x: 0.06
-        
-        # empty label for spacing
+        size_hint_x: 0.08
+
         Label:
-            text: ''
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            size_hint: 1.0, 0.3
 
         # home Btn
         Button:
@@ -33,7 +38,7 @@
                 source: icon_path + 'home-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
+                size: dp(40), dp(40)
 
         # engine Btn
         Button:
@@ -45,7 +50,7 @@
                 source: icon_path + 'engine-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
+                size: dp(40), dp(40)
 
         # temp Btn
         Button:
@@ -57,7 +62,7 @@
                 source: icon_path + 'temp-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
+                size: dp(40), dp(40)
 
         # fuel Btn
         Button:
@@ -69,7 +74,7 @@
                 source: icon_path + 'fuel-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
+                size: dp(40), dp(40)
 
         # battery Btn
         Button:
@@ -81,7 +86,7 @@
                 source: icon_path + 'battery-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
+                size: dp(40), dp(40)
 
         # warning Btn
         Button:
@@ -93,13 +98,19 @@
                 source: icon_path + 'warning-symbol.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-                size: dp(30), dp(30)
-        
+                size: dp(40), dp(40)
+
         Label:
-            text: ''
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            size_hint: 1.0, 0.3
 
     # Right Column: Screen Manager
     ScreenManager:
         id: screen_manager_id
-        size_hint_x: 0.94
+        size_hint_x: 0.92
         transition: NoTransition()
