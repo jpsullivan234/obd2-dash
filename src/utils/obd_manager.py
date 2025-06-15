@@ -31,6 +31,18 @@ class OBDManager:
             return f"OBD Status: {self.connection.status()}"
         return "OBD Status: Not Connected"
     
+    def get_status_color(self):
+        """
+        Returns an RGBA color tuple based on the OBD-II connection status.
+        Returns:
+            tuple: (R, G, B, A) color tuple.
+        """
+        if self.is_connected():
+            return (0, 1, 0, 1) # Green
+        elif self.connection is not None and self.connection.status() == obd.OBDStatus.CAR_CONNECTED:
+             return (1, 1, 0, 1) # Yellow (Car connected but not fully online)
+        return (1, 0, 0, 1) # Red
+    
     def query_data(self, obd_commands_list, units_list):
         """
         Queries the OBD-II adapter for data corresponding to the given commands.
@@ -60,7 +72,7 @@ class OBDManager:
                     unit = units_list[i] if i < len(units_list) else ""
                     data.append(f"{display_value}{unit}")
                 else:
-                    data.append("N/A")	# data is not available
+                    data.append("N/A")    # data is not available
             except Exception as e:
                 print(f"Error querying OBD command {cmd.name}: {e}")
                 data.append("Error")

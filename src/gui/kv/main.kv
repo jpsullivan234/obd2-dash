@@ -1,118 +1,105 @@
 #:kivy 2.1.0
-#: import HomeScreen gui.screens.HomeScreen
+#: import Dashboard gui.screens.Dashboard
 #: import NoTransition kivy.uix.screenmanager.NoTransition
 #: set icon_path 'gui/assets/icons/' # Define a variable for icon path
 
 <RootWidget>:
-	orientation: 'horizontal'
-	id: root_widget
-	screen_manager: screen_manager_id
-	canvas.before:
-		Color:
-			rgba: 0.1, 0.1, 0.1, 1
-		Rectangle:
-			pos: self.pos
-			size: self.size
+    orientation: 'horizontal'
+    id: root_widget
+    screen_manager: screen_manager_id
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
-	# Sidebar (left column)
-	BoxLayout:
-		orientation: 'vertical'
-		size_hint_x: 0.10
-		canvas.before: 
-			Color:
-				rgba: 0.1, 0.1, 0.1, 1
-			Rectangle:
-				pos: self.pos
-				size: self.size
-		
-		# home Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('home')
+    # Sidebar (left column)
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.06
+        
+        # empty label for spacing
+        Label:
+            text: ''
 
-			Image:
-				source: icon_path + 'home-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # home Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('home')
 
-		# engine Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('engine')
+            Image:
+                source: icon_path + 'home-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
 
-			Image:
-				source: icon_path + 'engine-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # engine Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('engine')
 
-		# temp Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('temp')
+            Image:
+                source: icon_path + 'engine-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
 
-			Image:
-				source: icon_path + 'temp-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # temp Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('temp')
 
-		# fuel Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('fuel')
+            Image:
+                source: icon_path + 'temp-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
 
-			Image:
-				source: icon_path + 'fuel-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # fuel Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('fuel')
 
-		# battery Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('battery')
+            Image:
+                source: icon_path + 'fuel-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
 
-			Image:
-				source: icon_path + 'battery-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # battery Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('battery')
 
-		# warning Btn
-		Button:
-			background_normal: ''
-			background_color: 0.2, 0.2, 0.2, 1
-			on_press: root.switch_screen('warning')
+            Image:
+                source: icon_path + 'battery-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
 
-			Image:
-				source: icon_path + 'warning-symbol.png'
-				center_x: self.parent.center_x
-				center_y: self.parent.center_y + dp(20)
-				size: dp(40), dp(40)
+        # warning Btn
+        Button:
+            background_normal: ''
+            background_color: 0.2, 0.2, 0.2, 1
+            on_press: root.switch_screen('warning')
 
-	# Right Column: Screen Manager
-	ScreenManager:
-		id: screen_manager_id
-		size_hint_x: 0.90
-		transition: NoTransition()
+            Image:
+                source: icon_path + 'warning-symbol.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: dp(30), dp(30)
+        
+        Label:
+            text: ''
 
-		# Screens
-		HomeScreen:
-			name: 'home'
-		HomeScreen:
-			name: 'engine'
-		HomeScreen:
-			name: 'temp'
-		HomeScreen:
-			name: 'fuel'
-		HomeScreen:
-			name: 'battery'
-		HomeScreen:
-			name: 'warning'
+    # Right Column: Screen Manager
+    ScreenManager:
+        id: screen_manager_id
+        size_hint_x: 0.94
+        transition: NoTransition()
