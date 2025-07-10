@@ -1,5 +1,5 @@
 # obd2-dash
-> Raspberry Pi 4 based Car Dashboard that displays OBD-II information on a convenient dashboard.
+> Raspberry Pi 4 based Car Dashboard that displays OBD-II information on a convenient, modern-looking dashboard.
 
 ![alt text](https://github.com/jpsullivan234/obd2-dash/blob/main/src/utils/dashboard-preview.png "dashboard preview")
 
