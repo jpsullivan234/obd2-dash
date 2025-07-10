@@ -1,7 +1,9 @@
 # obd2-dash
 > Raspberry Pi 4 based Car Dashboard that displays OBD-II information on a convenient dashboard.
 
+![alt text](https://github.com/jpsullivan234/obd2-dash/blob/main/src/utils/dashboard-preview.png "dashboard preview")
 
+---
 
 **Hardware:**
 - Raspberry Pi 4
@@ -30,5 +32,8 @@
    You should see the GUI window pop up. The OBD-II's status will appear at the top of the screen.
    The dashboard will be populated with random values if the OBD-II adapter is not connected
 
-   
+---
+
+
+*This is an ongoing project and is not perfect by any means! Feel free to play around and change stuff!!*
    
