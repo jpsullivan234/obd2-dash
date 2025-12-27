@@ -9,7 +9,7 @@ cmd = obd.commands.DTC_MAF
 # send the command
 response = connection.query(cmd)
 
-print(response.value)
+print(response.value.toString())
 
 
 # if connection.is_connected():  # Ensure a connection is established.

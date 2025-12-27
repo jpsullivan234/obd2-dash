@@ -65,12 +65,26 @@ class OBDManager:
             try:
                 response = self.connection.query(cmd)
                 
+                
                 if response and not response.is_null():
-                    # format the value
-                    display_value = f"{response.value.magnitude:.1f}"
-                    # append units
-                    unit = units_list[i] if i < len(units_list) else ""
-                    data.append(f"{display_value}{unit}")
+                    
+                    # Force the value to a float magnitude to strip 'rotations_per_minute'
+                    try:
+                        # Some responses are lists or strings, so we check for magnitude
+                        if hasattr(response.value, "magnitude"):
+                            val = response.value.magnitude
+                        else:
+                            val = response.value
+                            
+                        # Format the number strictly
+                        display_value = f"{val:.1f}" if isinstance(val, (int, float)) else str(val)
+                        
+                        unit = units_list[i] if i < len(units_list) else ""
+                        data.append(f"{display_value}{unit}")
+                        
+                    except Exception:
+                        data.append(f"{response.value}") # Fallback
+            
                 else:
                     data.append("N/A")    # data is not available
             except Exception as e:
